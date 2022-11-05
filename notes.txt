@@ -1,0 +1,35 @@
+
+{
+    username: string,
+    password: encrypted (passport plz help)
+    cat: {
+        name: string,
+        location: string,
+        age: number,
+        treat_count: number,
+        color: string
+        comments: [
+            {
+            author: string,
+            treat: number,
+            message: string,
+            }]
+    friends: [strings]
+    high_scores : [
+        {
+            game: string,
+            score: number
+        }
+    ],
+    treats: number,
+    email: string,
+    name: string,
+    birthday?: date
+    }
+
+}
+
+create user bring u to create cat. a user can exist w/o a cat but no cat w/o 
+user. only one cat per user.
+birthday is datetime that they were created
+highsores, treats, friends, all evaluat to nothing when first inititialized
