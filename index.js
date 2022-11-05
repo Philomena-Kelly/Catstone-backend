@@ -4,9 +4,15 @@ const app = express();
 const PostModel = require("./postschema");
 const CatModel = require("./catschema");
 const axios = require("axios");
+const dotenv = require("dotenv");
+
+dotenv.config();
+console.log(process.env.WEATHER_API);
 
 mongoose.connect(
-  "mongodb+srv://pakelly98:Bi0ziZzyu4JTHcTS@catstone.sh889.mongodb.net/catstone?retryWrites=true&w=majority"
+  "mongodb+srv://" +
+    process.env.MONGO_LOGIN +
+    "@catstone.sh889.mongodb.net/catstone?retryWrites=true&w=majority"
 );
 
 const db = mongoose.connection;
@@ -108,7 +114,7 @@ const getWeather = async (location) => {
 
   await axios
     .get(
-      `http://api.weatherapi.com/v1/forecast.json?key=909df6789cf44ffea9633859222204&q=${location}&aqi=no`
+      `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API}&q=${location}&aqi=no`
     )
     .then((res) => {
       forecast = res;
